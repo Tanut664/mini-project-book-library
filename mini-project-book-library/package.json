@@ -1,0 +1,14 @@
+{
+  "name": "mini-project-book-library",
+  "version": "1.0.0",
+  "description": "Mini Project #2 - CRUD web application with Express.js, SQLite and vanilla JavaScript",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node --watch server/server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "express": "^5.1.0"
+  }
+}

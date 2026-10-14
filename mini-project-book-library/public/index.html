@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Library | Mini Project #2</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">▣</span><div><strong>Book Library</strong><small>Mini Project #2</small></div></div>
+    <span class="api-status" id="apiStatus">● API Connected</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">RESOURCE MANAGEMENT</p>
+        <h1>ระบบจัดการหนังสือ</h1>
+        <p>เพิ่ม แก้ไข ค้นหา และลบข้อมูลหนังสือผ่าน REST API พร้อมจัดเก็บข้อมูลด้วย SQLite</p>
+      </div>
+      <button class="primary" id="addBtn">+ เพิ่มหนังสือ</button>
+    </section>
+
+    <section class="stats" id="stats"></section>
+
+    <section class="panel">
+      <div class="toolbar">
+        <div class="search-wrap"><span>⌕</span><input id="search" placeholder="ค้นหาชื่อหนังสือหรือผู้เขียน..." /></div>
+        <select id="category"><option value="">ทุกหมวดหมู่</option></select>
+        <select id="status"><option value="">ทุกสถานะ</option><option value="Available">พร้อมยืม</option><option value="Borrowed">ถูกยืม</option></select>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>หนังสือ</th><th>ผู้เขียน</th><th>หมวดหมู่</th><th>ปี</th><th>สถานะ</th><th>จัดการ</th></tr></thead>
+          <tbody id="bookRows"><tr><td colspan="6" class="empty">กำลังโหลดข้อมูล...</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal hidden" id="modal">
+    <div class="modal-card">
+      <div class="modal-head"><h2 id="modalTitle">เพิ่มหนังสือ</h2><button class="close" id="closeBtn">×</button></div>
+      <form id="bookForm">
+        <input type="hidden" id="bookId" />
+        <label>ชื่อหนังสือ<input id="title" required /></label>
+        <label>ผู้เขียน<input id="author" required /></label>
+        <div class="two-col"><label>หมวดหมู่<input id="bookCategory" required /></label><label>ปีที่พิมพ์<input id="year" type="number" min="0" max="2100" /></label></div>
+        <label>สถานะ<select id="bookStatus"><option value="Available">พร้อมยืม</option><option value="Borrowed">ถูกยืม</option></select></label>
+        <div class="form-actions"><button type="button" class="secondary" id="cancelBtn">ยกเลิก</button><button class="primary" type="submit">บันทึก</button></div>
+      </form>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
